@@ -7,21 +7,6 @@ import Location from './components/Location'
 
 
 function App() {
-    const checkWeather = () => {
-        let imgSrc;
-        if(props.city.forecast === "Sunny"){
-          imgSrc = sunny;
-        }else if(props.city.forecast === 'Rainy'){
-          imgSrc = rainy;
-        }else if (props.city.forecast === 'Cloudy'){
-          imgSrc = cloudy;
-        }else if(props.city.forecast === 'Partly cloudy'){
-          imgSrc = partlyCloudy;
-        }else{
-          imgSrc = null;
-        }
-        return imgSrc;
-      }
     
     const [location, setLocation] = useState("New York City");
     return (
@@ -36,7 +21,7 @@ function App() {
 
 
             </div>
-            <Location data={cities} location={location} setLocation={setLocation} checkWeather={checkWeather}/>
+            <Location data={cities} location={location} setLocation={setLocation}/>
             
         </>
     )
