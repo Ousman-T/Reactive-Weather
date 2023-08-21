@@ -2,15 +2,18 @@
 
 
 
-function Location({data, location, setLocation}){
+function Location({data, location, setLocation, checkWeather}){
     const found = data.find(city => city.city === location);
-    // imgSrc = found ? checkWeather(found.forecast): null;
+    imgSrc = checkWeather(found);
+    console.log(location);
+    console.log(imgSrc);
+    console.log(found);
     return(
         <div className = "card">
         <div className = "img-container">
             <h3>Your Location's Weather</h3>
 
-            <img className="card-img-top" alt="Card image cap" id = "icon"/>
+            <img className="card-img-top" src={imgSrc} alt="Card image cap" id = "icon"/>
         </div>
         <div class="card-body">
             <h3 className="card-title">{found.city}</h3>

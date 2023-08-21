@@ -5,23 +5,7 @@ import cloudy from '../assets/Cloudy.svg';
 import partlyCloudy from '../assets/PartlyCloudy.svg';
 
 function WeatherCard(props) {
-
-  const checkWeather = () => {
-    let imgSrc;
-    if(props.city.forecast === "Sunny"){
-      imgSrc = sunny;
-    }else if(props.city.forecast === 'Rainy'){
-      imgSrc = rainy;
-    }else if (props.city.forecast === 'Cloudy'){
-      imgSrc = cloudy;
-    }else if(props.city.forecast === 'Partly cloudy'){
-      imgSrc = partlyCloudy;
-    }else{
-      imgSrc = null;
-    }
-    return imgSrc;
-  }
-  const imgSrc = checkWeather();
+ const imgSrc = props.checkWeather(props.city);
   return (
     <div className = "card">
         <div className = "img-container">
@@ -37,6 +21,5 @@ function WeatherCard(props) {
 };
 
 // Export the WeatherCard
-// module.exports = {WeatherCard};
 export default WeatherCard;
 
